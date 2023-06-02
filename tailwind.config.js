@@ -33,28 +33,92 @@ module.exports = {
         white: '#FFFFFF',
       },
       fontSize: {
-        'title-xl': '48px',
-        'title-l': '32px',
-        'title-m': '24px',
-        'title-s': '20px',
-        'title-xs': '18px',
+        'title-xl': [
+          '48px',
+          {
+            lineHeight: '130%',
+            fontWeight: 800,
+          },
+        ],
+        'title-l': [
+          '32px',
+          {
+            lineHeight: '130%',
+            fontWeight: 800,
+          },
+        ],
+        'title-m': [
+          '24px',
+          {
+            lineHeight: '130%',
+            fontWeight: 800,
+          },
+        ],
+        'title-s': [
+          '20px',
+          {
+            lineHeight: '130%',
+            fontWeight: 700,
+          },
+        ],
+        'title-xs': [
+          '18px',
+          {
+            lineHeight: '130%',
+            fontWeight: 700,
+          },
+        ],
 
-        'text-l': '20px',
-        'text-m': '16px',
-        'text-s': '14px',
-        'text-xs': '12px',
+        'text-l': [
+          '20px',
+          {
+            lineHeight: '130%',
+          },
+        ],
+        'text-m': [
+          '16px',
+          {
+            lineHeight: '130%',
+          },
+        ],
+        'text-s': [
+          '14px',
+          {
+            lineHeight: '130%',
+            fontWeight: 500,
+          },
+        ],
+        'text-xs': [
+          '12px',
+          {
+            lineHeight: '130%',
+            fontWeight: 700,
+          },
+        ],
 
-        tag: '10px',
-        'button-g': '14px',
-        'button-m': '12px',
+        tag: [
+          '10px',
+          {
+            lineHeight: '130%',
+            fontWeight: 700,
+          },
+        ],
+        'button-g': [
+          '14px',
+          {
+            lineHeight: '160%',
+            fontWeight: 700,
+          },
+        ],
+        'button-m': [
+          '12px',
+          {
+            lineHeight: '160%',
+            fontWeight: 500,
+          },
+        ],
       },
     },
   },
   plugins: [],
 }
-
-// '2xl': ['1.5rem', {
-//   lineHeight: '2rem',
-//   letterSpacing: '-0.01em',
-//   fontWeight: '500',
-// }],
