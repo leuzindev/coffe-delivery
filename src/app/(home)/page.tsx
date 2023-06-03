@@ -1,7 +1,10 @@
+import { Hero } from '../../components/Hero'
+
 export default function Home() {
   return (
     <div className="flex flex-wrap">
-      <h1>Container Hme</h1>
+      <Hero />
+      <h1></h1>
     </div>
   )
 }

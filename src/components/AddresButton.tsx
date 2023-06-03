@@ -4,7 +4,7 @@ interface AddresButtonProps {
   address: string
 }
 
-export default function AddresButton({ address }: AddresButtonProps) {
+export function AddresButton({ address }: AddresButtonProps) {
   return (
     <div className="flex w-[143px] items-center justify-center gap-2 rounded-md bg-purple-light">
       <FaMapMarkerAlt className="text-lg text-purple" />
