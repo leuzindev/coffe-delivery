@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import LogoCoffe from '../../assets/LogoCoffeDelivery.svg'
 import Image from 'next/image'
 import { CartButton } from '../../components/CartButton'
-import AddresButton from '../../components/AddresButton'
+import { AddresButton } from '../../components/AddresButton'
 
 export default function HomeLayout({ children }: { children: ReactNode }) {
   return (
