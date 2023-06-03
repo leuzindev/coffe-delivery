@@ -7,8 +7,8 @@ import AddresButton from '@/components/AddresButton'
 export default function HomeLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <header className="fixed top-0 flex h-[104px] w-full items-center bg-background">
-        <div className="m-auto flex w-[70%] items-center justify-between">
+      <header className="fixed top-0 flex h-[104px] w-full items-center bg-background ">
+        <div className="m-auto flex w-[70%] items-center justify-between sm:w-[90%]">
           <Image src={LogoCoffe} alt="Copo de café com grãos atras" />
           <div className="flex gap-3">
             <AddresButton address="Cajamar, SP" />
