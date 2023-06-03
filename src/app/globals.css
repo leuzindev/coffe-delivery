@@ -2,14 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 body{
+  background-color: '#FAFAFA';
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--font-roboto);
 }
 :focus{
   outline: 0;
