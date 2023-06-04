@@ -1,8 +1,9 @@
+import React from 'react'
 import { IconType } from 'react-icons'
 
 interface IconTextWidgetProps {
   icon: IconType | any
-  title: string
+  title: React.ReactNode
   color: string
   subtitle?: string
 }
