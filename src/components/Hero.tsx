@@ -12,7 +12,7 @@ import { BsFillBoxSeamFill } from 'react-icons/bs'
 export function Hero() {
   const isMobile = useMediaQuery({ maxWidth: 767 })
   return (
-    <div className="flex w-full flex-wrap items-center justify-between lg:justify-center lg:p-10">
+    <div className="my-20 flex w-full flex-wrap items-center justify-between lg:my-0 lg:justify-center">
       <section className=" flex flex-col justify-evenly lg:w-[90%]">
         <div className="mb-10">
           <h1 className="mb-3 font-alt text-title-xl text-base-title lg:text-4xl">
