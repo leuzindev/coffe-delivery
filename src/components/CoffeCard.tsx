@@ -1,6 +1,8 @@
 import coffe from '../assets/coffes/Type=Americano.svg'
 import Image from 'next/image'
 import { CoffeTag } from './CoffeTag'
+import { Counter } from './Counter'
+import { BuyButton } from './BuyButton'
 
 interface CoffeCardProps {
   coffeImg?: any
@@ -35,10 +37,15 @@ export function CoffeCard({
           O tradicional café feito com água quente e grãos moídos
         </p>
       </div>
-      <div className="flex">
-        <p>
-          R$ <span>9,90</span>
-        </p>
+      <div className="mt-9 flex items-center justify-center">
+        <div className="mr-6 flex items-end">
+          <p className="mr-[2px] leading-7 text-base-text">R$</p>
+          <span className="text-alt text-title-m text-base-text">9,90</span>
+        </div>
+        <div className="flex gap-2">
+          <Counter value={4} />
+          <BuyButton />
+        </div>
       </div>
     </div>
   )

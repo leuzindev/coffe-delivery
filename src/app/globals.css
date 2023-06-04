@@ -18,7 +18,7 @@ body{
   font-family: var(--font-roboto);
 }
 :focus{
-  outline: 2px solid #DBAC2C;
+  outline: 0;
 }
 
 body, input, textarea, button {
