@@ -5,7 +5,7 @@ export default function Success() {
       <h1 className="mt-[80px] font-alt text-title-l text-yellow-dark ">
         Uhu! Pedido confirmado
       </h1>
-      <p className="mt-[4px] font-body text-base-subtitle">
+      <p className="mt-[4px] font-body text-text-l text-base-subtitle">
         Agora é só aguardar que logo o café chegará até você
       </p>
       <div className="my-10 flex h-[270px] w-[526px] flex-col items-start gap-8 rounded-bl-[36px] rounded-br-lg rounded-tl-lg rounded-tr-[36px] border p-10">
