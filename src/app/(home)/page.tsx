@@ -9,7 +9,7 @@ export default function Home() {
         <h1 className="mb-14 font-alt text-title-l text-base-subtitle">
           Nossos cafés
         </h1>
-        <div className="flex  justify-between">
+        <div className="flex  flex-wrap justify-between">
           <CoffeCard />
           <CoffeCard />
           <CoffeCard />
