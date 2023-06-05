@@ -2,11 +2,14 @@ import { FaMinus, FaPlus } from 'react-icons/fa'
 
 interface CounterProps {
   value: number
+  className?: string
 }
 
-export function Counter({ value }: CounterProps) {
+export function Counter({ value, className }: CounterProps) {
   return (
-    <div className="flex h-[38px] w-[72px] items-center justify-around rounded-md bg-base-button">
+    <div
+      className={`${className} flex h-[38px] w-[72px] items-center justify-around rounded-md bg-base-button`}
+    >
       <button className="h-full outline-none">
         <FaMinus className="text-purple" size={13} />
       </button>

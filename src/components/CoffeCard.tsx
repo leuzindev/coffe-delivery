@@ -19,6 +19,7 @@ export function CoffeCard({
   price,
   type,
 }: CoffeCardProps) {
+  // border-2 border-yellow -> Quando o Item estiver no carrinho
   return (
     <div className="h-[310px] w-[256px] rounded-bl-[36px] rounded-br-md rounded-tl-md rounded-tr-[36px] bg-base-card">
       <header className="flex justify-center">

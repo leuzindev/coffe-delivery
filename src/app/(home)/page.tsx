@@ -9,7 +9,7 @@ export default function Home() {
         <h1 className="mb-14 font-alt text-title-l text-base-subtitle">
           Nossos cafés
         </h1>
-        <div className="grid grid-cols-4 place-items-start gap-8 space-y-3 sm:!grid-cols-1 lg:grid-cols-3 mdd:grid-cols-2">
+        <div className="grid grid-cols-4 place-items-start gap-8 sm:!grid-cols-1 xl:grid-cols-3 mdd:grid-cols-2">
           <CoffeCard />
           <CoffeCard />
           <CoffeCard />
