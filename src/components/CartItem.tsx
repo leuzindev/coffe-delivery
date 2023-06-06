@@ -24,7 +24,7 @@ export function CartItem({ label, price, amount }: CartItemProps) {
             </span>
           </div>
           <div className="flex gap-2">
-            <Counter className="h-[32px]" value={3} />
+            <Counter className="h-[31px]" value={3} />
             <DeleteButton />
           </div>
         </div>

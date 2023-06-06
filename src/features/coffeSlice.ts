@@ -21,7 +21,7 @@ import irlandesImg from '../assets/coffes/Type=Irlandês.svg'
 const initialState: Coffes = {
   coffes: [
     {
-      id: '22',
+      id: uuidv4(),
       image: expressoTradicionalImg,
       name: 'Expresso Tradicional',
       descriptions: 'O tradicional café feito com água quente e grãos moídos',
@@ -161,11 +161,36 @@ const coffeSlice = createSlice({
   name: 'coffe',
   initialState,
   reducers: {
-    addCoffe: (state: Coffes, action: PayloadAction<Coffe>) => {
-      state.coffes.push(action.payload)
+    addCoffe: (state: Coffes, action: PayloadAction<string>) => {
+      const coffeIndex = state.coffes.findIndex(
+        (coffe) => coffe.id === action.payload,
+      )
+      if (coffeIndex !== -1) {
+        const updatedCoffes = [...state.coffes]
+        updatedCoffes[coffeIndex] = {
+          ...updatedCoffes[coffeIndex],
+          quantity: updatedCoffes[coffeIndex].quantity + 1,
+        }
+        return { ...state, coffes: updatedCoffes }
+      }
+      return state
+    },
+    removeCoffe: (state: Coffes, action: PayloadAction<string>) => {
+      const coffeIndex = state.coffes.findIndex(
+        (coffe) => coffe.id === action.payload,
+      )
+      if (coffeIndex !== -1 && state.coffes[coffeIndex].quantity >= 1) {
+        const updatedCoffes = [...state.coffes]
+        updatedCoffes[coffeIndex] = {
+          ...updatedCoffes[coffeIndex],
+          quantity: updatedCoffes[coffeIndex].quantity - 1,
+        }
+        return { ...state, coffes: updatedCoffes }
+      }
+      return state
     },
   },
 })
 
-export const { addCoffe } = coffeSlice.actions
+export const { addCoffe, removeCoffe } = coffeSlice.actions
 export default coffeSlice.reducer
