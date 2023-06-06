@@ -1,11 +1,11 @@
 interface CoffeTagProps {
-  type: string
+  categorie: string
 }
 
-export function CoffeTag({ type }: CoffeTagProps) {
+export function CoffeTag({ categorie }: CoffeTagProps) {
   return (
     <div className="mt-3 flex items-center rounded-full bg-yellow-light p-[5px] text-tag text-yellow-dark">
-      <span>{type.toUpperCase()}</span>
+      <span>{categorie.toUpperCase()}</span>
     </div>
   )
 }

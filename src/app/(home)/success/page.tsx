@@ -14,7 +14,7 @@ export default function Success() {
           <p className="mt-[4px] font-body text-base-subtitle">
             Agora é só aguardar que logo o café chegará até você
           </p>
-          <div className="my-10 flex h-[270px] w-[526px] flex-col items-start gap-8 rounded-bl-[36px] rounded-br-lg rounded-tl-lg rounded-tr-[36px] border border-gradient  p-10 md:w-full">
+          <div className="gradient-border my-10 flex h-[270px] w-[526px] flex-col items-start gap-8 rounded-bl-[36px] rounded-br-lg rounded-tl-lg rounded-tr-[36px] border p-10 md:w-full">
             <div className="flex">
               <IconTextWidget
                 icon={<FaMapMarkerAlt className="bg-purple text-lg" />}

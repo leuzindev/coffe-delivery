@@ -32,9 +32,6 @@ module.exports = {
         background: '#FAFAFA',
         white: '#FFFFFF',
       },
-      borderColor: {
-        gradient: 'linear-gradient(to right, #DBAC2C, #8047F8)', // Defina o gradiente de cores desejado
-      },
       fontSize: {
         'title-xl': [
           '48px',

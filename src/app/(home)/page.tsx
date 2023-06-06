@@ -1,7 +1,13 @@
+'use client'
 import { CoffeCard } from 'components/CoffeCard'
 import { Hero } from '../../components/Hero'
 
+import { useSelector } from 'react-redux'
+import { RootState } from 'store'
+
 export default function Home() {
+  const coffes = useSelector((state: RootState) => state.coffe.coffes)
+
   return (
     <div className="flex flex-wrap">
       <Hero />
@@ -10,20 +16,17 @@ export default function Home() {
           Nossos cafés
         </h1>
         <div className="grid grid-cols-4 place-items-start gap-8 sm:!grid-cols-1 xl:grid-cols-3 mdd:grid-cols-2">
-          <CoffeCard />
-          <CoffeCard />
-          <CoffeCard />
-          <CoffeCard />
-          <CoffeCard />
-          <CoffeCard />
-          <CoffeCard />
-          <CoffeCard />
-          <CoffeCard />
-          <CoffeCard />
-          <CoffeCard />
-          <CoffeCard />
-          <CoffeCard />
-          <CoffeCard />
+          {coffes.map((coffe) => (
+            <CoffeCard
+              key={coffe.id}
+              coffeImg={coffe.image}
+              name={coffe.name}
+              categories={coffe.categories}
+              description={coffe.descriptions}
+              price={coffe.price}
+              quantity={coffe.quantity}
+            />
+          ))}
         </div>
       </main>
     </div>
