@@ -19,43 +19,51 @@ export default function Success() {
             <p className="mt-1 text-text-l text-base-subtitle">
               Agora é só aguardar que logo o café chegará até você
             </p>
-            <div className="my-10 flex h-[270px] w-[526px] flex-col items-start gap-8 rounded-bl-[36px] rounded-br-lg rounded-tl-lg rounded-tr-[36px] border p-10 sm:border-none sm:p-0 sm:pt-7 md:my-5 md:w-full">
-              <div className="flex">
-                <IconTextWidget
-                  color="bg-purple"
-                  icon={<FaMapMarkerAlt className="bg-purple text-lg" />}
-                  title={
-                    <span>
-                      Entrega em{' '}
-                      <strong>Rua João Daniel Martinelli, 102 </strong>
-                      Farrapos - Porto Alegre, RS
-                    </span>
-                  }
-                />
-              </div>
+            <div className="border-gradient-line my-10 flex flex-col gap-8 border-none sm:p-0 sm:pt-7 md:my-5 md:w-full ">
+              <div className=" content flex flex-col items-start gap-8 border-none p-10 sm:p-0 sm:pt-7 md:my-5 md:w-full">
+                <div className="flex">
+                  <IconTextWidget
+                    color="bg-purple"
+                    icon={
+                      <FaMapMarkerAlt className="bg-purple text-lg text-white" />
+                    }
+                    title={
+                      <span>
+                        Entrega em{' '}
+                        <strong>Rua João Daniel Martinelli, 102 </strong>
+                        Farrapos - Porto Alegre, RS
+                      </span>
+                    }
+                  />
+                </div>
 
-              <div className="flex">
-                <IconTextWidget
-                  color="bg-yellow"
-                  icon={<FaStopwatch className="bg-yellow text-lg" />}
-                  title={
-                    <span>
-                      Previsão de entrega <strong>20 min - 30 minm</strong>
-                    </span>
-                  }
-                />
-              </div>
+                <div className="flex">
+                  <IconTextWidget
+                    color="bg-yellow"
+                    icon={
+                      <FaStopwatch className="bg-yellow text-lg text-white" />
+                    }
+                    title={
+                      <span>
+                        Previsão de entrega <strong>20 min - 30 minm</strong>
+                      </span>
+                    }
+                  />
+                </div>
 
-              <div className="flex">
-                <IconTextWidget
-                  icon={<FaDollarSign className="bg-yellow-dark text-lg" />}
-                  title={
-                    <span>
-                      Pagamento na entrega <strong>Cartão de Crédito</strong>
-                    </span>
-                  }
-                  color="bg-yellow-dark "
-                />
+                <div className="flex">
+                  <IconTextWidget
+                    icon={
+                      <FaDollarSign className="bg-yellow-dark text-lg text-white" />
+                    }
+                    title={
+                      <span>
+                        Pagamento na entrega <strong>Cartão de Crédito</strong>
+                      </span>
+                    }
+                    color="bg-yellow-dark "
+                  />
+                </div>
               </div>
             </div>
           </section>
