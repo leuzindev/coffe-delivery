@@ -1,5 +1,5 @@
 export interface Coffe {
-  id: string
+  id: number
   image: any
   name: string
   descriptions: string

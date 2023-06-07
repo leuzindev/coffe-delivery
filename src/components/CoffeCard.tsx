@@ -2,11 +2,9 @@ import Image from 'next/image'
 import { CoffeTag } from './CoffeTag'
 import { Counter } from './Counter'
 import { BuyButton } from './BuyButton'
-import { useSelector } from 'react-redux'
-import { RootState } from 'store'
 
 interface CoffeCardProps {
-  id: string
+  id: number
   coffeImg: any
   name: string
   description: string
@@ -24,9 +22,9 @@ export function CoffeCard({
   categories,
   quantity,
 }: CoffeCardProps) {
-  const coffes = useSelector((state: RootState) => state.coffe.coffes)
+  // const coffes = useSelector((state: RootState) => state.coffe.coffes)
 
-  const coffe = coffes.findIndex((coffe) => coffe.id === id)
+  // const coffe = coffes.findIndex((coffe) => coffe.id === id)
   // border-2 border-yellow -> Quando o Item estiver no carrinho
   return (
     <div className="h-[310px] w-[256px] rounded-bl-[36px] rounded-br-md rounded-tl-md rounded-tr-[36px] bg-base-card">
@@ -35,7 +33,7 @@ export function CoffeCard({
       </header>
       <div className="flex justify-center gap-[4px]">
         {categories?.map((categorie) => (
-          <CoffeTag categorie={categorie} key={name} />
+          <CoffeTag categorie={categorie} key={categorie} />
         ))}
       </div>
       <div className="mt-4 flex flex-col items-center justify-center">
@@ -51,7 +49,7 @@ export function CoffeCard({
         </div>
         <div className="flex gap-2">
           <Counter value={quantity} coffeId={id} />
-          <BuyButton />
+          <BuyButton coffeId={id} />
         </div>
       </div>
     </div>

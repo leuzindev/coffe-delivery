@@ -1,9 +1,15 @@
-import { addCoffe, removeCoffe } from 'features/coffeSlice'
+import {
+  addCoffe,
+  addCoffeInCart,
+  removeCoffe,
+  removeCoffeFromCart,
+} from 'features/coffeSlice'
 import { FaMinus, FaPlus } from 'react-icons/fa'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from 'store'
 
 interface CounterProps {
-  coffeId?: string
+  coffeId: number
   value: number
   className?: string
 }
@@ -11,13 +17,20 @@ interface CounterProps {
 export function Counter({ value, className, coffeId }: CounterProps) {
   const dispatch = useDispatch()
 
+  const coffes = useSelector((state: RootState) => state.coffe.coffes)
+  const coffe = coffes.find((coffe) => coffe.id === coffeId)
+
   function handleAddCoffe() {
     dispatch(addCoffe(coffeId))
-    console.log('Cafe adicionado ' + coffeId)
+    if (coffe) {
+      // dispatch(addCoffeInCart(coffe))
+    }
   }
   function handleRemoveCoffe() {
     dispatch(removeCoffe(coffeId))
-    console.log('Cafe removido ' + coffeId)
+    if (coffe) {
+      // dispatch(removeCoffeFromCart(coffeId))
+    }
   }
 
   return (
