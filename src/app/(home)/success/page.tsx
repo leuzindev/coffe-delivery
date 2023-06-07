@@ -6,15 +6,15 @@ import Image from 'next/image'
 export default function Success() {
   return (
     <main>
-      <div className="flex">
-        <section className="w-1/2">
-          <h1 className="mt-[80px] font-alt text-title-l text-yellow-dark ">
+      <div className="flex  flex-wrap items-center justify-between xl:justify-center">
+        <section>
+          <h1 className="mt-[80px] font-alt text-title-l text-yellow-dark mdd:mt-[0px] ">
             Uhu! Pedido confirmado
           </h1>
-          <p className="mt-[4px] font-body text-base-subtitle">
+          <p className="mt-[4px] font-body text-text-l text-base-subtitle">
             Agora é só aguardar que logo o café chegará até você
           </p>
-          <div className="gradient-border my-10 flex h-[270px] w-[526px] flex-col items-start gap-8 rounded-bl-[36px] rounded-br-lg rounded-tl-lg rounded-tr-[36px] border p-10 md:w-full">
+          <div className="my-10 flex h-[270px] w-[526px] flex-col items-start gap-8 rounded-bl-[36px] rounded-br-lg rounded-tl-lg rounded-tr-[36px] border p-10 sm:border-none  sm:p-0 sm:pt-7 md:my-5 md:w-full">
             <div className="flex">
               <IconTextWidget
                 icon={<FaMapMarkerAlt className="bg-purple text-lg" />}
@@ -53,15 +53,13 @@ export default function Success() {
             </div>
           </div>
         </section>
-        <section className="flex w-1/2 items-center justify-center">
-          <Image
-            src={FinishSvg}
-            width={492}
-            height={293}
-            alt="Imagem de um cara de entrega de moto"
-            className="mt-36"
-          />
-        </section>
+        <Image
+          src={FinishSvg}
+          width={492}
+          height={293}
+          alt="Imagem de um cara de entrega de moto"
+          className="mt-36  xl:mt-0"
+        />
       </div>
     </main>
   )
