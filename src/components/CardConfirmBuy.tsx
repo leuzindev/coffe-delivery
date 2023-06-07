@@ -19,6 +19,7 @@ export function CardConfirmBuy() {
         {cartItems.map((item) => (
           <CartItem
             key={item.id}
+            coffeId={item.id}
             image={item.image}
             price={item.price}
             amount={item.quantity}

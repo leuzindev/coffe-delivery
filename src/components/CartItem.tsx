@@ -3,13 +3,20 @@ import { Counter } from './Counter'
 import { DeleteButton } from './DeleteButton'
 
 interface CartItemProps {
+  coffeId: number
   image: any
   label: string
   price: string
   amount: number
 }
 
-export function CartItem({ label, price, amount, image }: CartItemProps) {
+export function CartItem({
+  label,
+  price,
+  amount,
+  image,
+  coffeId,
+}: CartItemProps) {
   return (
     <>
       <div className="my-[10px] flex h-20 items-center sm:my-5">
@@ -22,8 +29,12 @@ export function CartItem({ label, price, amount, image }: CartItemProps) {
             </span>
           </div>
           <div className="flex gap-2">
-            <Counter className="h-[31px]" value={Number(amount)} />
-            <DeleteButton />
+            <Counter
+              className="h-[30px]"
+              value={Number(amount)}
+              coffeId={coffeId}
+            />
+            <DeleteButton coffeId={coffeId} />
           </div>
         </div>
       </div>

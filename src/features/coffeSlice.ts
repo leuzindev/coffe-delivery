@@ -191,8 +191,10 @@ const coffeSlice = createSlice({
       state.cart.push(action.payload)
     },
     removeCoffeFromCart: (state: Coffes, action: PayloadAction<number>) => {
-      // state.cart.pop(action.payload)
-      // console.log(state.cart)
+      const updatedCart = state.cart.filter(
+        (coffe) => coffe.id !== action.payload,
+      )
+      return { ...state, cart: updatedCart }
     },
   },
 })
