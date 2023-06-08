@@ -1,5 +1,5 @@
 <div align="center">
-  <img title="Logo Coffee Delivery" src="src/assets/logo/logo.svg" />
+  <img title="Logo Coffee Delivery" src="src/assets/LogoCoffeDelivery.svg" />
   <div>
     <strong>Coffee Delivery</strong>
   </div>
