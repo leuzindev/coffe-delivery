@@ -29,11 +29,7 @@ export function CartItem({
             </span>
           </div>
           <div className="flex gap-2">
-            <Counter
-              className="h-[30px]"
-              value={Number(amount)}
-              coffeId={coffeId}
-            />
+            <Counter className="!h-[30px]" value={amount} coffeId={coffeId} />
             <DeleteButton coffeId={coffeId} />
           </div>
         </div>

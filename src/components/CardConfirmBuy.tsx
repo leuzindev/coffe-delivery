@@ -4,6 +4,7 @@ import Image from 'next/image'
 import EmptyCart from '../assets/EmptyCart.svg'
 
 import { CartItem } from './CartItem'
+
 import { useSelector } from 'react-redux'
 import { RootState } from 'store'
 
@@ -27,15 +28,17 @@ export function CardConfirmBuy() {
           />
         ))}
         {cartItems.length === 0 ? (
-          <div className="m-auto">
+          <div className="flex w-full flex-col items-center justify-center space-y-3">
+            <span className="text-text-s text-base-subtitle">
+              Carrinho vazio
+            </span>
             <Image
               src={EmptyCart}
               alt="uma mulher fazendo compras na internet"
               width={250}
               height={208}
-              className="m-auto"
             />
-            <Link href="/">
+            <Link href="/" className="w-full">
               <button className="mt-5 h-[46px] w-full rounded-md bg-yellow text-button-g text-white transition-colors hover:bg-yellow-dark">
                 Selecionar cafes
               </button>
@@ -67,7 +70,6 @@ export function CardConfirmBuy() {
                 R$ 33,20
               </span>
             </div>
-
             <Link href="/success">
               <button className="mt-4 h-[46px] w-full rounded-md bg-yellow text-button-g text-white transition-colors hover:bg-yellow-dark">
                 CONFIRMAR PEDIDO

@@ -1,7 +1,13 @@
 import Image from 'next/image'
+
 import { CoffeTag } from './CoffeTag'
 import { Counter } from './Counter'
 import { BuyButton } from './BuyButton'
+
+import { RootState } from 'store'
+import { useSelector } from 'react-redux'
+
+import clsx from 'clsx'
 
 interface CoffeCardProps {
   id: number
@@ -22,12 +28,16 @@ export function CoffeCard({
   categories,
   quantity,
 }: CoffeCardProps) {
-  // const coffes = useSelector((state: RootState) => state.coffe.coffes)
+  const cart = useSelector((state: RootState) => state.coffe.cart)
+  const itemInCart = cart.find((coffe) => coffe.id === id)
 
-  // const coffe = coffes.findIndex((coffe) => coffe.id === id)
-  // border-2 border-yellow -> Quando o Item estiver no carrinho
   return (
-    <div className="h-[310px] w-[256px] rounded-bl-[36px] rounded-br-md rounded-tl-md rounded-tr-[36px] bg-base-card">
+    <div
+      className={clsx(
+        'h-[310px] w-[256px] rounded-bl-[36px] rounded-br-md rounded-tl-md rounded-tr-[36px] bg-base-card',
+        { 'border-2 border-yellow': itemInCart },
+      )}
+    >
       <header className="flex justify-center">
         <Image src={coffeImg} alt="um copo de cafe" className="-mt-4" />
       </header>

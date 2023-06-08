@@ -4,7 +4,6 @@ import { useMediaQuery } from 'react-responsive'
 
 import Image from 'next/image'
 import HeroImg from '../assets/Hero.png'
-import BackgroundImg from '../assets/Effect.svg'
 
 import { IconTextWidget } from './IconTextWidget'
 import { FaShoppingCart, FaClock, FaCoffee } from 'react-icons/fa'
@@ -14,11 +13,6 @@ export function Hero() {
   const isMobile = useMediaQuery({ maxWidth: 767 })
   return (
     <div className="my-20 flex w-full flex-wrap items-center justify-between lg:my-0 lg:justify-center xl:justify-center">
-      <Image
-        src={BackgroundImg}
-        alt="blur purple"
-        className="absolute w-[74rem] opacity-[0.5] blur-xl"
-      />
       <section className=" flex flex-col justify-evenly lg:w-[90%]">
         <div className="mb-10">
           <h1 className="mb-3 font-alt text-title-xl text-base-title lg:text-4xl">

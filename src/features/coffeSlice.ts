@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { Coffe, Coffes } from 'interfaces/Coffe'
+import { Coffes } from 'interfaces/Coffe'
 
 import expressoTradicionalImg from '../assets/coffes/Type=Expresso.svg'
 import expressoAmericanoImg from '../assets/coffes/Type=Americano.svg'
@@ -187,8 +187,11 @@ const coffeSlice = createSlice({
       }
       return state
     },
-    addCoffeInCart: (state: Coffes, action: PayloadAction<Coffe>) => {
-      state.cart.push(action.payload)
+    addCoffeInCart: (state: Coffes, action: PayloadAction<any>) => {
+      const coffeQuantity = action.payload.quantity
+      if (coffeQuantity >= 1) {
+        state.cart.push(action.payload)
+      }
     },
     removeCoffeFromCart: (state: Coffes, action: PayloadAction<number>) => {
       const updatedCart = state.cart.filter(

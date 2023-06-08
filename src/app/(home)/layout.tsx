@@ -19,7 +19,7 @@ export default function HomeLayout({ children }: { children: ReactNode }) {
           <div className="flex gap-3">
             <AddresButton address="Cajamar, SP" />
             <Link href="/checkout">
-              <CartButton variant={false} value={2} />
+              <CartButton />
             </Link>
           </div>
         </div>
