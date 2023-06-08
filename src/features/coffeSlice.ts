@@ -24,8 +24,9 @@ const initialState: Coffes = {
       name: 'Expresso Tradicional',
       descriptions: 'O tradicional café feito com água quente e grãos moídos',
       categories: ['Tradicional'],
-      price: '9,90',
+      price: 9.9,
       quantity: 1,
+      total: 0,
     },
     {
       id: 2,
@@ -33,8 +34,9 @@ const initialState: Coffes = {
       name: 'Expresso Americano',
       descriptions: 'Expresso diluído, menos intenso que o tradicional',
       categories: ['Tradicional'],
-      price: '9,90',
+      price: 9.9,
       quantity: 1,
+      total: 0,
     },
     {
       id: 3,
@@ -42,8 +44,9 @@ const initialState: Coffes = {
       name: 'Expresso Cremoso',
       descriptions: 'Café expresso tradicional com espuma cremosa',
       categories: ['Tradicional'],
-      price: '9,90',
+      price: 9.9,
       quantity: 1,
+      total: 0,
     },
     {
       id: 4,
@@ -51,8 +54,9 @@ const initialState: Coffes = {
       name: 'Expresso Gelado',
       descriptions: 'Bebida preparada com café expresso e cubos de gelo',
       categories: ['Tradicional', 'Gelado'],
-      price: '9,90',
       quantity: 1,
+      price: 9.9,
+      total: 0,
     },
     {
       id: 5,
@@ -60,8 +64,9 @@ const initialState: Coffes = {
       name: 'Café com Leite',
       descriptions: 'Meio a meio de expresso tradicional com leite vaporizado',
       categories: ['Tradicional', 'Com Leite'],
-      price: '9,90',
+      price: 9.9,
       quantity: 1,
+      total: 0,
     },
     {
       id: 6,
@@ -70,8 +75,9 @@ const initialState: Coffes = {
       descriptions:
         'Uma dose de café expresso com o dobro de leite e espuma cremosa',
       categories: ['Tradicional', 'Com Leite'],
-      price: '9,90',
+      price: 9.9,
       quantity: 1,
+      total: 0,
     },
     {
       id: 7,
@@ -80,8 +86,9 @@ const initialState: Coffes = {
       descriptions:
         'Bebida com canela feita de doses iguais de café, leite e espuma',
       categories: ['Tradicional', 'Com Leite'],
-      price: '9,90',
+      price: 9.9,
       quantity: 1,
+      total: 0,
     },
     {
       id: 8,
@@ -90,8 +97,9 @@ const initialState: Coffes = {
       descriptions:
         'Café expresso misturado com um pouco de leite quente e espuma',
       categories: ['Tradicional', 'Com Leite'],
-      price: '9,90',
+      price: 9.9,
       quantity: 1,
+      total: 0,
     },
     {
       id: 9,
@@ -100,8 +108,9 @@ const initialState: Coffes = {
       descriptions:
         'Café expresso com calda de chocolate, pouco leite e espuma',
       categories: ['Tradicional', 'Com Leite'],
-      price: '9,90',
+      price: 9.9,
       quantity: 1,
+      total: 0,
     },
     {
       id: 10,
@@ -110,8 +119,9 @@ const initialState: Coffes = {
       descriptions:
         'Bebida feita com chocolate dissolvido no leite quente e café',
       categories: ['Especial', 'Com Leite'],
-      price: '9,90',
+      price: 9.9,
       quantity: 1,
+      total: 0,
     },
     {
       id: 11,
@@ -120,8 +130,9 @@ const initialState: Coffes = {
       descriptions:
         'Drink gelado de café expresso com rum, creme de leite e hortelã',
       categories: ['Especial', 'Alcoólico', 'Gelado'],
-      price: '9,90',
+      price: 9.9,
       quantity: 1,
+      total: 0,
     },
     {
       id: 12,
@@ -129,8 +140,9 @@ const initialState: Coffes = {
       name: 'Havaiano',
       descriptions: 'Bebida adocicada preparada com café e leite de coco',
       categories: ['Especial'],
-      price: '9,90',
+      price: 9.9,
       quantity: 1,
+      total: 0,
     },
     {
       id: 13,
@@ -138,8 +150,9 @@ const initialState: Coffes = {
       name: 'Árabe',
       descriptions: 'Bebida preparada com grãos de café árabe e especiarias',
       categories: ['Especial'],
-      price: '9,90',
+      price: 9.9,
       quantity: 1,
+      total: 0,
     },
     {
       id: 14,
@@ -148,8 +161,9 @@ const initialState: Coffes = {
       descriptions:
         'Bebida a base de café, uísque irlandês, açúcar e chantilly',
       categories: ['Especial', 'Alcoólico'],
-      price: '9,90',
+      price: 9.9,
       quantity: 1,
+      total: 0,
     },
   ],
   cart: [],
@@ -169,6 +183,17 @@ const coffeSlice = createSlice({
           ...updatedCoffes[coffeIndex],
           quantity: updatedCoffes[coffeIndex].quantity + 1,
         }
+        const cartItemIndex = state.cart.findIndex(
+          (item) => item.id === action.payload,
+        )
+        if (cartItemIndex !== -1) {
+          const updatedCart = [...state.cart]
+          updatedCart[cartItemIndex] = {
+            ...updatedCart[cartItemIndex],
+            quantity: updatedCart[cartItemIndex].quantity + 1,
+          }
+          return { ...state, coffes: updatedCoffes, cart: updatedCart }
+        }
         return { ...state, coffes: updatedCoffes }
       }
       return state
@@ -183,6 +208,20 @@ const coffeSlice = createSlice({
           ...updatedCoffes[coffeIndex],
           quantity: updatedCoffes[coffeIndex].quantity - 1,
         }
+        const cartItemIndex = state.cart.findIndex(
+          (item) => item.id === action.payload,
+        )
+        if (cartItemIndex !== -1) {
+          const updatedCart = [...state.cart]
+          updatedCart[cartItemIndex] = {
+            ...updatedCart[cartItemIndex],
+            quantity: updatedCart[cartItemIndex].quantity - 1,
+          }
+          if (updatedCart[cartItemIndex].quantity === 0) {
+            updatedCart.splice(cartItemIndex, 1)
+          }
+          return { ...state, coffes: updatedCoffes, cart: updatedCart }
+        }
         return { ...state, coffes: updatedCoffes }
       }
       return state
@@ -190,14 +229,36 @@ const coffeSlice = createSlice({
     addCoffeInCart: (state: Coffes, action: PayloadAction<any>) => {
       const coffeQuantity = action.payload.quantity
       if (coffeQuantity >= 1) {
-        state.cart.push(action.payload)
+        const updatedCoffes = state.coffes.map((coffe) => {
+          if (coffe.id === action.payload.id) {
+            const total = coffe.price * coffeQuantity
+            return { ...coffe, quantity: coffeQuantity, total }
+          }
+          return coffe
+        })
+
+        const updatedCart = [
+          ...state.cart,
+          { ...action.payload, total: action.payload.price * coffeQuantity },
+        ]
+
+        return { ...state, coffes: updatedCoffes, cart: updatedCart }
       }
+      return state
     },
     removeCoffeFromCart: (state: Coffes, action: PayloadAction<number>) => {
       const updatedCart = state.cart.filter(
         (coffe) => coffe.id !== action.payload,
       )
-      return { ...state, cart: updatedCart }
+
+      const updatedCoffes = state.coffes.map((coffe) => {
+        if (coffe.id === action.payload) {
+          return { ...coffe, quantity: 1, total: 0 }
+        }
+        return coffe
+      })
+
+      return { ...state, coffes: updatedCoffes, cart: updatedCart }
     },
   },
 })

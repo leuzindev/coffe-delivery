@@ -4,8 +4,9 @@ export interface Coffe {
   name: string
   descriptions: string
   categories: string[]
-  price: string
+  price: number
   quantity: number
+  total: number
 }
 
 export interface Coffes {

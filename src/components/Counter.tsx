@@ -6,11 +6,11 @@ import { RootState } from 'store'
 
 interface CounterProps {
   coffeId: number
-  value: number
+  variant?: boolean
   className?: string
 }
 
-export function Counter({ value, className, coffeId }: CounterProps) {
+export function Counter({ className, coffeId }: CounterProps) {
   const dispatch = useDispatch()
   const coffes = useSelector((state: RootState) => state.coffe.coffes)
   const coffeQuantity = coffes.find((coffe) => coffe.id === coffeId)?.quantity

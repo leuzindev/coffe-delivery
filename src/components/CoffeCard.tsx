@@ -58,7 +58,7 @@ export function CoffeCard({
           <span className="text-alt text-title-m text-base-text">{price}</span>
         </div>
         <div className="flex gap-2">
-          <Counter value={quantity} coffeId={id} />
+          <Counter coffeId={id} />
           <BuyButton coffeId={id} />
         </div>
       </div>

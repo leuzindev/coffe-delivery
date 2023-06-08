@@ -1,12 +1,13 @@
 import Image from 'next/image'
-import { Counter } from './Counter'
 import { DeleteButton } from './DeleteButton'
+import { useSelector } from 'react-redux'
+import { RootState } from 'store'
 
 interface CartItemProps {
   coffeId: number
   image: any
   label: string
-  price: string
+  price: number
   amount: number
 }
 
@@ -17,6 +18,9 @@ export function CartItem({
   image,
   coffeId,
 }: CartItemProps) {
+  const coffes = useSelector((state: RootState) => state.coffe.coffes)
+  const coffe = coffes.find((coffe) => coffe.id === coffeId)
+
   return (
     <>
       <div className="my-[10px] flex h-20 items-center sm:my-5">
@@ -25,12 +29,14 @@ export function CartItem({
           <div className="mb-1 flex flex-wrap justify-between">
             <h4 className="text-text-m text-base-subtitle">{label}</h4>
             <span className="text-text-m font-bold text-base-text">
-              R$ {price}
+              R$ {coffe?.total?.toFixed(2).replace('.', ',')}
             </span>
           </div>
-          <div className="flex gap-2">
-            <Counter className="!h-[30px]" value={amount} coffeId={coffeId} />
+          <div className="flex items-center justify-between gap-2">
             <DeleteButton coffeId={coffeId} />
+            <span className="font-alt text-title-s text-base-subtitle">
+              {amount}
+            </span>
           </div>
         </div>
       </div>

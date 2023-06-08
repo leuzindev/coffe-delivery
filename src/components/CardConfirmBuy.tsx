@@ -5,11 +5,20 @@ import EmptyCart from '../assets/EmptyCart.svg'
 
 import { CartItem } from './CartItem'
 
+import { Coffe } from 'interfaces/Coffe'
 import { useSelector } from 'react-redux'
 import { RootState } from 'store'
 
+import { humanizeValue } from 'utils/humanizeValue'
+
 export function CardConfirmBuy() {
   const cartItems = useSelector((state: RootState) => state.coffe.cart)
+
+  const cartTotal = cartItems.reduce((total, item) => {
+    return total + (item.total || 0)
+  }, 0)
+
+  const shippingCosts = 3.5
 
   return (
     <>
@@ -17,7 +26,7 @@ export function CardConfirmBuy() {
         Cafés selecionados
       </h1>
       <div className="w-[448px] rounded-bl-[36px]  rounded-br-md rounded-tl-md rounded-tr-[36px] bg-base-card p-10 xll:w-full">
-        {cartItems.map((item) => (
+        {cartItems.map((item: Coffe) => (
           <CartItem
             key={item.id}
             coffeId={item.id}
@@ -51,7 +60,7 @@ export function CardConfirmBuy() {
                 Total de itens
               </span>
               <span className="text-text-s font-normal text-base-text">
-                R$ 29,70
+                R$ {humanizeValue(cartTotal)}
               </span>
             </div>
             <div className="flex justify-between">
@@ -59,7 +68,7 @@ export function CardConfirmBuy() {
                 Entrega
               </span>
               <span className="text-text-s font-normal text-base-text">
-                R$ 3,50
+                R$ {humanizeValue(shippingCosts)}
               </span>
             </div>
             <div className="flex justify-between">
@@ -67,7 +76,7 @@ export function CardConfirmBuy() {
                 Total
               </span>
               <span className="text-text-l font-bold text-base-subtitle">
-                R$ 33,20
+                R$ {humanizeValue(cartTotal + shippingCosts)}
               </span>
             </div>
             <Link href="/success">

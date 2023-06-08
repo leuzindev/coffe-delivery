@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux'
 import { RootState } from 'store'
 import { NextSeo } from 'next-seo'
 
+import { humanizeValue } from 'utils/humanizeValue'
+
 export default function Home() {
   const coffes = useSelector((state: RootState) => state.coffe.coffes)
 
@@ -27,7 +29,7 @@ export default function Home() {
                 name={coffe.name}
                 categories={coffe.categories}
                 description={coffe.descriptions}
-                price={coffe.price}
+                price={humanizeValue(coffe.price)}
                 quantity={coffe.quantity}
               />
             ))}
